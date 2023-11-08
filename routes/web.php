@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.master');
 });
 
 Route::get('/dashboard', function () {
@@ -33,4 +34,24 @@ require __DIR__.'/auth.php';
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
+
+
+Route::middleware('auth:admin')->group(function () {
+//category routes
+Route::get('/view-category',[CategoryController::class,'index'])->name('view.category');
+Route::get('/create-category',[CategoryController::class,'create'])->name('create.category');
+Route::post('/store-category',[CategoryController::class,'store'])->name('store.category');
+Route::get('/edit-category/{id}',[CategoryController::class,'edit'])->name('edit.category');
+Route::post('/update-category/{id}',[CategoryController::class,'update'])->name('update.category');
+Route::get('/delete-category/{id}',[CategoryController::class,'destroy'])->name('delete.category');
+//brand routes
+Route::get('/view-brand',[Brand::class,'index'])->name('view.brand');
+Route::get('/create-brand',[CategoryController::class,'create'])->name('create.brand');
+Route::post('/store-brand',[CategoryController::class,'store'])->name('store.brand');
+Route::get('/edit-brand/{id}',[CategoryController::class,'edit'])->name('edit.brand');
+Route::post('/update-brand/{id}',[CategoryController::class,'update'])->name('update.brand');
+Route::get('/delete-brand/{id}',[CategoryController::class,'destroy'])->name('delete.brand');
+});
+
+
 require __DIR__.'/adminauth.php';

@@ -23,13 +23,31 @@
                             Home 
                         </span>
                     </a>
+                     <a class="nav-link" href="{{ route('view.category') }}">
+                        <span
+                            class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="fa-solid fa-border-all"></i>
+                        </span>
+                        <span class="nav-link-title">
+                            Category 
+                        </span>
+                    </a>
+                      <a class="nav-link" href="{{ route('view.category') }}">
+                        <span
+                            class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="fa-brands fa-bandcamp"></i>
+                        </span>
+                        <span class="nav-link-title">
+                            Brand 
+                        </span>
+                    </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
                         data-bs-auto-close="false" role="button" aria-expanded="false">
                         <span
                             class="nav-link-icon d-md-none d-lg-inline-block">
-                            <i class="fa-solid fa-border-all"></i>
+                            <i class="fa-brands fa-bandcamp"></i>
                         </span>
                         <span class="nav-link-title">
                             Interface

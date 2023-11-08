@@ -1,12 +1,35 @@
  <!-- Libs JS -->
-    <script src="{{asset('dist')}}/libs/apexcharts/{{asset('dist')}}/apexcharts.min.js?1684106062" defer></script>
-    <script src="{{asset('dist')}}/libs/jsvectormap/{{asset('dist')}}/js/jsvectormap.min.js?1684106062" defer></script>
-    <script src="{{asset('dist')}}/libs/jsvectormap/{{asset('dist')}}/maps/world.js?1684106062" defer></script>
-    <script src="{{asset('dist')}}/libs/jsvectormap/{{asset('dist')}}/maps/world-merc.js?1684106062" defer></script>
+    <script src="{{asset('backend/dist')}}/libs/apexcharts/{{asset('backend/dist')}}/apexcharts.min.js?1684106062" defer></script>
+    <script src="{{asset('backend/dist')}}/libs/jsvectormap/{{asset('backend/dist')}}/js/jsvectormap.min.js?1684106062" defer></script>
+    <script src="{{asset('backend/dist')}}/libs/jsvectormap/{{asset('backend/dist')}}/maps/world.js?1684106062" defer></script>
+    <script src="{{asset('backend/dist')}}/libs/jsvectormap/{{asset('backend/dist')}}/maps/world-merc.js?1684106062" defer></script>
     <!-- Tabler Core -->
-    <script src="{{asset('dist')}}/js/tabler.min.js?1684106062" defer></script>
-    <script src="{{asset('dist')}}/js/demo.min.js?1684106062" defer></script>
+    <script src="{{asset('backend/dist')}}/js/tabler.min.js?1684106062" defer></script>
+    <script src="{{asset('backend/dist')}}/js/demo.min.js?1684106062" defer></script>
+   <!-- Libs JS -->
+    <script src="{{asset('backend/dist')}}/libs/dropzone/dist/dropzone-min.js?1684106062" defer></script>
+    <!-- Tabler Core -->
+    <script src="{{asset('backend/dist')}}/js/tabler.min.js?1684106062" defer></script>
+    <script src="{{asset('backend/dist')}}/js/demo.min.js?1684106062" defer></script>
     <script>
+      // @formatter:off
+      document.addEventListener("DOMContentLoaded", function() {
+        new Dropzone("#dropzone-default")
+      })
+    </script>
+    <script>
+      // @formatter:off
+      document.addEventListener("DOMContentLoaded", function() {
+        new Dropzone("#dropzone-multiple")
+      })
+    </script>
+    <script>
+      // @formatter:off
+      document.addEventListener("DOMContentLoaded", function() {
+        new Dropzone("#dropzone-custom")
+      })
+    </script>
+   <script>
       // @formatter:off
       document.addEventListener("DOMContentLoaded", function () {
       	window.ApexCharts && (new ApexCharts(document.getElementById('chart-revenue-bg'), {
@@ -595,3 +618,73 @@
       });
       // @formatter:on
     </script>
+	 <script src="{{asset('backend/dist')}}/libs/list.js/dist/list.min.js?1684106062" defer></script>
+    <!-- Tabler Core -->
+    <script src="{{asset('backend/dist')}}/js/tabler.min.js?1684106062" defer></script>
+    <script src="{{asset('backend/dist')}}/js/demo.min.js?1684106062" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+      const list = new List('table-default', {
+      	sortClass: 'table-sort',
+      	listClass: 'table-tbody',
+      	valueNames: [ 'sort-name', 'sort-type', 'sort-city', 'sort-score',
+      		{ attr: 'data-date', name: 'sort-date' },
+      		{ attr: 'data-progress', name: 'sort-progress' },
+      		'sort-quantity'
+      	]
+      });
+      })
+    </script>
+	{{-- toast message --}}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    {{-- when bellow one, will put some error sign will come but no problem it will work. --}}
+   <script>
+    @if(Session::has('success'))
+    toastr.success("{{Session::get('success')}}");
+    @endif
+   </script>
+   {{-- sweet alert --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script>
+    $(function() {
+        $(document).on('click', '#delete', function(e) {
+            e.preventDefault();
+            var link = $(this).attr('href');
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success m-3',
+                    cancelButton: 'btn btn-danger',
+                },
+                buttonsStyling: true
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You want to delete this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.value) {
+                    window.location.href = link;
+                    swalWithBootstrapButtons.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelled',
+                        'Your file is safe :)',
+                        'error'
+                    )
+                }
+            })
+        });
+    });
+</script>
