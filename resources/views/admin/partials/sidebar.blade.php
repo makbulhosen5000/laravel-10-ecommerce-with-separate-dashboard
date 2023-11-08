@@ -32,7 +32,7 @@
                             Category 
                         </span>
                     </a>
-                      <a class="nav-link" href="{{ route('view.category') }}">
+                      <a class="nav-link" href="{{ route('view.brand') }}">
                         <span
                             class="nav-link-icon d-md-none d-lg-inline-block">
                             <i class="fa-brands fa-bandcamp"></i>

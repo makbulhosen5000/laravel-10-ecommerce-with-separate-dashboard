@@ -8,9 +8,9 @@
                     <div class="col">
                         <div class="d-flex justify-content-between">
                             <h2 class="page-title">
-                                Edit Category
+                                Edit Brand
                             </h2>
-                            <a href="{{ route('view.category') }}" class="btn btn-success">View Category</a>
+                            <a href="{{ route('view.brand') }}" class="btn btn-success">View Brand</a>
                         </div>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div id="table-default" class="table-responsive">
-                            <form action="{{ route('update.category',$categoryId->id) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('update.brand',$brandId->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @if ($errors->any())
                                     <div class="alert alert-danger">
@@ -33,19 +33,19 @@
                                         </ul>
                                     </div>
                                 @endif
-                                <label class="form-label">Category</label>
+                                <label class="form-label">Brand</label>
                                 <fieldset class="form-fieldset">
                                     <div class="mb-3">
-                                        <label class="form-label required">Category</label>
-                                        <input type="text" name="name" value="{{ $categoryId->name }}"
-                                            placeholder="enter category name" class="form-control" autocomplete="off" />
+                                        <label class="form-label required">Brand</label>
+                                        <input type="text" name="name" value="{{ $brandId->name }}"
+                                            placeholder="enter Brand name" class="form-control" autocomplete="off" />
                                         <span class="text-danger">@error('name') is-invalid @enderror</span>
                                     </div>
                                   
                                     <div class="mb-3">
                                         <label class="form-label required">Image</label>
                                         <div>
-                                            <img src="{{asset('public/images/category/'.$categoryId->image)}}" alt="" width="60px";height='60px'>
+                                            <img src="{{asset('public/images/brand/'.$brandId->image)}}" alt="" width="60px";height='60px'>
                                         </div>
                                         <input type="file" name='image' class="form-control" autocomplete="off" required />
                                           <span class="text-danger">@error('image') is-invalid @enderror</span>

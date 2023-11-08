@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,12 +46,12 @@ Route::get('/edit-category/{id}',[CategoryController::class,'edit'])->name('edit
 Route::post('/update-category/{id}',[CategoryController::class,'update'])->name('update.category');
 Route::get('/delete-category/{id}',[CategoryController::class,'destroy'])->name('delete.category');
 //brand routes
-Route::get('/view-brand',[Brand::class,'index'])->name('view.brand');
-Route::get('/create-brand',[CategoryController::class,'create'])->name('create.brand');
-Route::post('/store-brand',[CategoryController::class,'store'])->name('store.brand');
-Route::get('/edit-brand/{id}',[CategoryController::class,'edit'])->name('edit.brand');
-Route::post('/update-brand/{id}',[CategoryController::class,'update'])->name('update.brand');
-Route::get('/delete-brand/{id}',[CategoryController::class,'destroy'])->name('delete.brand');
+Route::get('/view-brand',[BrandController::class,'index'])->name('view.brand');
+Route::get('/create-brand',[BrandController::class,'create'])->name('create.brand');
+Route::post('/store-brand',[BrandController::class,'store'])->name('store.brand');
+Route::get('/edit-brand/{id}',[BrandController::class,'edit'])->name('edit.brand');
+Route::post('/update-brand/{id}',[BrandController::class,'update'])->name('update.brand');
+Route::get('/delete-brand/{id}',[BrandController::class,'destroy'])->name('delete.brand');
 });
 
 

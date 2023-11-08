@@ -22,7 +22,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div id="table-default" class="table-responsive">
-                            <form action="{{ route('store.category') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('store.category') }}" method="POST"  enctype="multipart/form-data" id="image-upload" class="dropzone">
                                 @csrf
                                 @if ($errors->any())
                                     <div class="alert alert-danger">
@@ -44,7 +44,7 @@
                                   
                                     <div class="mb-3">
                                         <label class="form-label required">Image</label>
-                                        <input id="my-input" class="form-control" type="file" name="image" id="file" onchange="showImage(this,'image')" value='' autocomplete="off">
+                                        <input id="my-input" class="form-control" type="file" name="image" id="file" onchange="showImage(this,'image')" value='' autocomplete="off" required>
                                           <span class="text-danger">@error('image') is-invalid @enderror</span>
                                     </div>
                                     <div>

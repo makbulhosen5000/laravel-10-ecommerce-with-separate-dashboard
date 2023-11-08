@@ -12,6 +12,9 @@
 <link href="{{ asset('backend/dist') }}/css/tabler-vendors.min.css?1684106062" rel="stylesheet" />
 <link href="{{ asset('backend/dist') }}/css/demo.min.css?1684106062" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+{{-- drag and drop --}}
+ <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <style>
     @import url('https://rsms.me/inter/inter.css');
