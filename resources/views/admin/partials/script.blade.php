@@ -15,7 +15,7 @@
  <!-- Tabler Core -->
  <script src="{{ asset('backend/dist') }}/js/tabler.min.js?1684106062" defer></script>
  <script src="{{ asset('backend/dist') }}/js/demo.min.js?1684106062" defer></script>
- <script>
+ {{-- <script>
      // @formatter:off
      document.addEventListener("DOMContentLoaded", function() {
          new Dropzone("#dropzone-default")
@@ -32,7 +32,7 @@
      document.addEventListener("DOMContentLoaded", function() {
          new Dropzone("#dropzone-custom")
      })
- </script>
+ </script> --}}
  <script>
      // @formatter:off
      document.addEventListener("DOMContentLoaded", function() {
@@ -925,13 +925,80 @@
          });
      });
  </script>
- {{-- drag $ drop --}}
- <script type="text/javascript">
-     Dropzone.autoDiscover = false;
+ {{-- drag & drop --}}
+ {{-- <script src="{{ asset('backend/dist') }}/libs/dropzone/dist/dropzone-min.js?1684106062" defer></script>
+ <script>
+      // @formatter:off
+      document.addEventListener("DOMContentLoaded", function() {
+        new Dropzone("#dropzone-default")
+      })
+    </script>
+    <script>
+      // @formatter:off
+      document.addEventListener("DOMContentLoaded", function() {
+        new Dropzone("#dropzone-multiple")
+      })
+    </script>
+    <script>
+      // @formatter:off
+      document.addEventListener("DOMContentLoaded", function() {
+        new Dropzone("#dropzone-custom")
+      }) --}}
 
-     var dropzone = new Dropzone('#image-upload', {
-         thumbnailWidth: 200,
-         maxFilesize: 1,
-         acceptedFiles: ".jpeg,.jpg,.png,.gif"
-     });
- </script>
+    //tinymce for text-area
+    </script>
+       <script src="{{ asset('backend/dist') }}/libs/tinymce/tinymce.min.js?1684106062" defer></script>
+    <script>
+      // @formatter:off
+      document.addEventListener("DOMContentLoaded", function () {
+        let options = {
+          selector: '#tinymce-mytextarea',
+          height: 300,
+          menubar: false,
+          statusbar: false,
+          plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table paste code help wordcount'
+          ],
+          toolbar: 'undo redo | formatselect | ' +
+            'bold italic backcolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat',
+          content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif; font-size: 14px; -webkit-font-smoothing: antialiased; }'
+        }
+        if (localStorage.getItem("tablerTheme") === 'dark') {
+          options.skin = 'oxide-dark';
+          options.content_css = 'dark';
+        }
+        tinyMCE.init(options);
+      })
+      // @formatter:on
+    </script>
+    {{-- dropify --}}
+      <script>
+        $(document).ready(function () {
+            $('.dropify').dropify();
+        });
+      </script>
+      <script>
+    
+  //dropzone
+  <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2"></script>
+    <script>
+        Dropzone.options.myDropzone = {
+            paramName: "images",
+            maxFilesize: 2, // MB
+            acceptedFiles: ".jpeg,.jpg,.png",
+            addRemoveLinks: true,
+            dictRemoveFile: "Remove file",
+            success: function(file, response) {
+                console.log(response);
+                // Handle success, e.g., update the image display
+            },
+            error: function(file, response) {
+                console.log(response);
+                // Handle error, if any
+            }
+        };
+    </script>

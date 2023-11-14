@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Backend;
+use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;

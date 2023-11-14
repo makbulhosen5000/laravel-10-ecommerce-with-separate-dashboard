@@ -41,6 +41,15 @@
                             Brand 
                         </span>
                     </a>
+                    <a class="nav-link" href="{{ route('view.product') }}">
+                        <span
+                            class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="fa-brands fa-product-hunt"></i>
+                        </span>
+                        <span class="nav-link-title">
+                            Product 
+                        </span>
+                    </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"

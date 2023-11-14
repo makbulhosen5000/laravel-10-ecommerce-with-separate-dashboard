@@ -4,17 +4,27 @@
 <title>Admin Dashboard</title>
 
 <!-- font awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 <!-- CSS files -->
+{{-- <link href="{{ asset('backend/dist') }}/libs/dropzone/dist/dropzone.css?1684106062" rel="stylesheet" /> --}}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.css" rel="stylesheet">
 <link href="{{ asset('backend/dist') }}/css/tabler.min.css?1684106062" rel="stylesheet" />
 <link href="{{ asset('backend/dist') }}/css/tabler-flags.min.css?1684106062" rel="stylesheet" />
 <link href="{{ asset('backend/dist') }}/css/tabler-payments.min.css?1684106062" rel="stylesheet" />
 <link href="{{ asset('backend/dist') }}/css/tabler-vendors.min.css?1684106062" rel="stylesheet" />
 <link href="{{ asset('backend/dist') }}/css/demo.min.css?1684106062" rel="stylesheet" />
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-{{-- drag and drop --}}
- <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+
+{{-- DROPIFY --}}
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
+
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <style>
     @import url('https://rsms.me/inter/inter.css');

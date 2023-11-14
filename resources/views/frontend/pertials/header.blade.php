@@ -198,15 +198,13 @@
                                             stroke="currentColor" stroke-width="1.429" stroke-linecap="round"
                                             stroke-linejoin="round" />
                                     </svg>
+                                    
                                 </button>
                                 <div class="profile-content">
                                     <ul class="py-3">
                                         <div class="px-3 shadow-[0px_1px_0px_#E1E3E6]">
                                             <li>
-                                                <a href="sign-in.html">Sign In</a>
-                                            </li>
-                                            <li>
-                                                <a href="sign-up.html">Create a Account</a>
+                                                <a href="{{ route('dashboard') }}">Manage My Account</a>
                                             </li>
                                         </div>
                                         <div class="px-3 shadow-[0px_1px_0px_#E1E3E6]">
@@ -223,11 +221,6 @@
                                             </li>
                                             <li>
                                                 <a href="shopping-cart.html">Shopping Cart</a>
-                                            </li>
-                                        </div>
-                                        <div class="px-3">
-                                            <li>
-                                                <a href="#">Logout</a>
                                             </li>
                                         </div>
                                     </ul>
@@ -287,7 +280,7 @@
                             <a href="products.html">Shop</a>
                         </li>
                         <li>
-                            <a href="product-details.html">Product</a>
+                            <a href="#">Product</a>
                         </li>
                         <li class="relative">
                             <a href="javascript:void(0);" class="inline-flex gap-2 items-center">Pages
