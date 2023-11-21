@@ -173,7 +173,7 @@
                                         <div class="mb-3">
                                             <label class="form-label">Short
                                                 Description</label>
-                                            <textarea id="tinymce-mytextarea" rows="5" value="{{ $productId->short_description }}" name="short_description"
+                                            <textarea id="tinymce-mytextarea" rows="5"value="{{ old($productId->short_description) }}" name="short_description"
                                                 placeholder="Enter short description"></textarea>
                                         </div>
                                     </div>
@@ -185,7 +185,7 @@
                                             <div class="mb-3">
                                                 <label class="form-label">Long
                                                     Description</label>
-                                                <textarea id="tinymce-mytextarea" rows="5" value="{{ $productId->long_description }}" name="long_description"
+                                                <textarea id="tinymce-mytextarea" rows="5" value="{{ old($productId->long_description) }}" name="long_description"
                                                     placeholder="Enter long description"></textarea>
                                             </div>
                                         </div>

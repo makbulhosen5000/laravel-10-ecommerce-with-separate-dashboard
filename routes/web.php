@@ -4,7 +4,6 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ProfileController;
-use App\Http\Controllers\Backend\MultipleImageController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -25,8 +24,11 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/',[HomeController::class,'index']);
-Route::get('/product',[HomeController::class,'product'])->name('product');
-Route::get('/product-details/{slug}',[HomeController::class,'productDetails'])->name('product.details');
+Route::get('/product-details/{id}',[HomeController::class,'productDetails'])->name('product.details');
+//add to cart route
+Route::post('/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
+Route::get('/show-cart', [CartController::class, 'showCart'])->name('show.cart');
+Route::get('/delete-cart/{id}', [CartController::class, 'deleteCart'])->name('delete.cart');
 
 
 //user dashboard route and middleware
@@ -35,9 +37,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    //add to cart route
-    Route::get('/add-to-car', [CartController::class,'addToCart'])->name('add.to.cart');
-
+    
     //user profile route
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -75,10 +75,8 @@ Route::get('/edit-product/{id}',[ProductController::class,'edit'])->name('edit.p
 Route::post('/update-product/{id}',[ProductController::class,'update'])->name('update.product');
 Route::get('/delete-product/{id}',[ProductController::class,'destroy'])->name('delete.product');
 //multiple image routes and controller for product
-Route::get('/multiple-image', [MultipleImageController::class, 'index'])->name('multiple.image');
-Route::get('/multiple-image-create', [MultipleImageController::class, 'multipleImageCreate'])->name('multiple.image.create');
-Route::post('/multiple-image-store', [MultipleImageController::class, 'multipleImageStore'])->name('multiple.image.store');
-
+Route::get('/product-gallery/{id}', [ProductController::class,'gallery'])->name('product.gallery');
+ Route::post('/product-gallery-store', [ProductController::class,'galleryStore'])->name('gallery.store');
 });
 
 

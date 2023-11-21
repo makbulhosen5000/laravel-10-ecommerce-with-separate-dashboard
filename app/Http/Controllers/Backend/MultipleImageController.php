@@ -29,7 +29,7 @@ class MultipleImageController extends Controller
      */
     public function multipleImageStore(Request $request)
     {
-         
+        dd($request->all());
         $image = $request->file('images');
         $imageName = time().'.'.$image->extension();
         $image->move(public_path('public/images/product'),$imageName);       

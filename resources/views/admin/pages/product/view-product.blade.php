@@ -69,8 +69,8 @@
                                                         Actions
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item"
-                                                            href="{{ route('multiple.image.create',$product->id) }}">
+                                                         <a class="dropdown-item"
+                                                            href="{{ route('product.gallery',$product->id) }}">
                                                             Add Images
                                                         </a>
                                                     </div>

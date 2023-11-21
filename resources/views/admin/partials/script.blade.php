@@ -11,29 +11,10 @@
  <script src="{{ asset('backend/dist') }}/js/tabler.min.js?1684106062" defer></script>
  <script src="{{ asset('backend/dist') }}/js/demo.min.js?1684106062" defer></script>
  <!-- Libs JS -->
- <script src="{{ asset('backend/dist') }}/libs/dropzone/dist/dropzone-min.js?1684106062" defer></script>
+
  <!-- Tabler Core -->
  <script src="{{ asset('backend/dist') }}/js/tabler.min.js?1684106062" defer></script>
- <script src="{{ asset('backend/dist') }}/js/demo.min.js?1684106062" defer></script>
- {{-- <script>
-     // @formatter:off
-     document.addEventListener("DOMContentLoaded", function() {
-         new Dropzone("#dropzone-default")
-     })
- </script>
- <script>
-     // @formatter:off
-     document.addEventListener("DOMContentLoaded", function() {
-         new Dropzone("#dropzone-multiple")
-     })
- </script>
- <script>
-     // @formatter:off
-     document.addEventListener("DOMContentLoaded", function() {
-         new Dropzone("#dropzone-custom")
-     })
- </script> --}}
- <script>
+ <script src="{{ asset('backend/dist') }}/js/demo.min.js?1684106062" defer>
      // @formatter:off
      document.addEventListener("DOMContentLoaded", function() {
          window.ApexCharts && (new ApexCharts(document.getElementById('chart-revenue-bg'), {
@@ -872,6 +853,7 @@
          });
      })
  </script>
+
  {{-- toast message --}}
  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
  {{-- when bellow one, will put some error sign will come but no problem it will work. --}}
@@ -925,27 +907,9 @@
          });
      });
  </script>
- {{-- drag & drop --}}
- {{-- <script src="{{ asset('backend/dist') }}/libs/dropzone/dist/dropzone-min.js?1684106062" defer></script>
- <script>
-      // @formatter:off
-      document.addEventListener("DOMContentLoaded", function() {
-        new Dropzone("#dropzone-default")
-      })
-    </script>
-    <script>
-      // @formatter:off
-      document.addEventListener("DOMContentLoaded", function() {
-        new Dropzone("#dropzone-multiple")
-      })
-    </script>
-    <script>
-      // @formatter:off
-      document.addEventListener("DOMContentLoaded", function() {
-        new Dropzone("#dropzone-custom")
-      }) --}}
 
-    //tinymce for text-area
+
+    {{-- tinymce for text-area --}}
     </script>
        <script src="{{ asset('backend/dist') }}/libs/tinymce/tinymce.min.js?1684106062" defer></script>
     <script>
@@ -982,23 +946,9 @@
         });
       </script>
       <script>
+
     
-  //dropzone
-  <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2"></script>
-    <script>
-        Dropzone.options.myDropzone = {
-            paramName: "images",
-            maxFilesize: 2, // MB
-            acceptedFiles: ".jpeg,.jpg,.png",
-            addRemoveLinks: true,
-            dictRemoveFile: "Remove file",
-            success: function(file, response) {
-                console.log(response);
-                // Handle success, e.g., update the image display
-            },
-            error: function(file, response) {
-                console.log(response);
-                // Handle error, if any
-            }
-        };
-    </script>
+
+  
+  
+

@@ -160,5 +160,35 @@ class ProductController extends Controller
         $deleteData->delete();
        return redirect()->route('view.product');
     }
+    
+    public function gallery($id)
+    {
+        $product = Product::find($id);
+       return view('admin.pages.product.product-gallery',compact('product'));
+    }
 
+    public function galleryStore(Request $request ){
+
+        try {
+            $postImageNames = [];
+
+            if ($request->hasFile('images')) {
+                foreach ($request->file('images') as $image) {
+                    $imageUniqueName = time() . '_' . $image->getClientOriginalName();
+                    $image->storeAs('uploads', $imageUniqueName, 'public');
+                    $postImageNames[] = $imageUniqueName;
+                }
+            }
+
+            $product = Gallery::create([
+                "product_id" => $request->product_id,
+                "images" => serialize($postImageNames),
+            ]);
+
+            Session::flash('success', 'Images uploaded successfully');
+            return redirect()->route('product.gallery', $product->id)->with('success', 'Gallery Updated');
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
 }

@@ -21,24 +21,25 @@
                     class="filter text-[#9A9CAA] text-base leading-[110%] font-display font-medium cursor-pointer p-2"
                     data-filter=".featured">Featured</button></li>
         </ul>
-
+      
         <div id="portfoliolist" class="portfoliolist justify-center mx-auto">
             @foreach ($products as $product)
                 <div class="mix all featured" data-cat="featured">
                     <div class="product-card">
-                        <a href="{{ route('product.details',$product->slug) }}">
+                        <a href="{{ route('product.details',$product->id) }}">
                             <div class="product-thumb">
-                                <img src="{{ url('storage/uploads/', $product->thumbnail) }}" alt="">
+                                <img src="{{ url('storage/uploads/', $product->thumbnail) }}" alt="" style="height: 200px">
                                 <span class="badge new">New</span>
                             </div>
                             <div class="product-info">
                                 <div>
                                     <h2 class="product-name">{{ $product->name }}</h2>
-                                    <h3 class="product-price">${{ $product->price }}</h3>
+                                    <h3 class="product-price">${{ $product->discount }}</h3>
+                                    <h3 class="product-price line-through">${{ $product->price }}</h3>
                                 </div>
                                 <div>
                                     <button class="cart-icon">
-                                        <a href="{{ route('product.details', $product->slug) }}">
+                                          
                                             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -56,7 +57,7 @@
                                                     fill="#272343" stroke="currentColor" stroke-width="1.5"
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
-                                        </a>
+                                           
                                     </button>
                                 </div>
                             </div>
