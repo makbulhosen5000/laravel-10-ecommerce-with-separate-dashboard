@@ -20,4 +20,5 @@ class HomeController extends Controller
         $data['products'] = Product::with('gallery')->find($id);
         return view('frontend.pages.product-details',$data);
     }
+
 }

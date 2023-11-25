@@ -50,6 +50,15 @@
                             Product 
                         </span>
                     </a>
+                      <a class="nav-link" href="{{ route('view.order') }}">
+                        <span
+                            class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="fa-brands fa-jedi-order"></i>
+                        </span>
+                        <span class="nav-link-title">
+                            Order 
+                        </span>
+                    </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"

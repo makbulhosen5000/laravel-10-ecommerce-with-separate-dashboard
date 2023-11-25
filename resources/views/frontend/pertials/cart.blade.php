@@ -115,10 +115,13 @@
                 </div>
                 <div class="px-3 shadow-[0px_1px_0px_#E1E3E6]">
                     <li>
-                        <a href="wishlist.html">Wishlist</a>
+                        <a href="{{ route('show.cart') }}">Wishlist</a>
                     </li>
                     <li>
-                        <a href="shopping-cart.html">Shopping Cart</a>
+                        <form action="{{ route('logout') }}" method="POST">
+                          @csrf
+                        <button class="btn-lg btn-warning" type="submit">Logout</button>
+                        </form>
                     </li>
                 </div>
             </ul>

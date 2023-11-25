@@ -19,6 +19,7 @@ class CartController extends Controller
            $cart->email = $user->email;
            $cart->email = $user->email;
            $cart->phone = $user->phone;
+           $cart->address = $user->address;
            $cart->user_id = $user->id;
            $cart->product_title = $product->name;
            if($product->price !=null){
@@ -40,9 +41,9 @@ class CartController extends Controller
     public function showCart(){
       if(Auth::id()){
         $id = Auth::user()->id;
-        $carts = Cart::where('user_id','=',$id)->get();
-        $products = Product::all();
-        return view('frontend.pages.show-cart',compact('carts','products'));
+        $data['carts'] = Cart::where('user_id','=',$id)->get();
+        $data['products'] = Product::all();
+        return view('frontend.pages.show-cart',$data);
       }else{
         return redirect('login');
       }

@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\PaymentGateWayController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,12 +25,19 @@ use Illuminate\Support\Facades\Route;
 //     return view('frontend.home');
 // });
 
-Route::get('/',[HomeController::class,'index']);
+Route::get('/',[HomeController::class,'index'])->middleware(['auth', 'verified']);
 Route::get('/product-details/{id}',[HomeController::class,'productDetails'])->name('product.details');
 //add to cart route
 Route::post('/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
 Route::get('/show-cart', [CartController::class, 'showCart'])->name('show.cart');
 Route::get('/delete-cart/{id}', [CartController::class, 'deleteCart'])->name('delete.cart');
+
+//cash on delivery route to order
+Route::get('/cash-on-delivery',[PaymentGateWayController::class,'cashOnDelivery'])->name('cash.on.delivery');
+//stripe payment gateway
+Route::get('/stripe/{subTotal}',[PaymentGateWayController::class,'stripePayment'])->name('stripe.payment');
+Route::post('/stripe-store/{subTotal}',[PaymentGateWayController::class,'stripePaymentStore'])->name('stripe-store');
+
 
 
 //user dashboard route and middleware
@@ -37,7 +46,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    
     //user profile route
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -76,7 +84,15 @@ Route::post('/update-product/{id}',[ProductController::class,'update'])->name('u
 Route::get('/delete-product/{id}',[ProductController::class,'destroy'])->name('delete.product');
 //multiple image routes and controller for product
 Route::get('/product-gallery/{id}', [ProductController::class,'gallery'])->name('product.gallery');
- Route::post('/product-gallery-store', [ProductController::class,'galleryStore'])->name('gallery.store');
+Route::post('/product-gallery-store', [ProductController::class,'galleryStore'])->name('gallery.store');
+//order route 
+Route::get('/order-view', [OrderController::class,'index'])->name('view.order');
+Route::get('/deliver-order/{id}', [OrderController::class,'deliverOrder'])->name('deliver.order');
+//dom pdf
+Route::get('/order-print-pdf/{id}', [OrderController::class, 'orderPrintPdf'])->name('order.print.pdf');
+//email notification for user
+Route::get('/send-email/{id}', [OrderController::class, 'sendEmail'])->name('send.email');
+Route::post('/send-user-email/{id}', [OrderController::class, 'sendUserEmail'])->name('send.user.email');
 });
 
 
