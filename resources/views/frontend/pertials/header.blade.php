@@ -69,7 +69,9 @@
                     </div>
                     <div class="lg:max-w-[413px] lg:block hidden w-full">
                         <div class="relative">
-                            <input type="text" id="search" placeholder="search here..."
+                            <form action="{{ route('search.product') }}" method="GET">
+                             @csrf 
+                             <input type="search" name="search" placeholder="search here..."
                                 class="block w-full bg-white focus:outline-none border-0 px-4 py-3 rounded-lg focus:ring-2 ring-[#029FAE]">
                             <label for="search" class="absolute right-4 top-3">
 
@@ -82,7 +84,9 @@
                                     <path d="M19.75 19.25L15.7625 15.2625" stroke="#272343" stroke-width="1.5"
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
-                            </label>
+                            </label>  
+                            </form>
+                            
                         </div>
                     </div>
                     <div class="lg:block hidden">
