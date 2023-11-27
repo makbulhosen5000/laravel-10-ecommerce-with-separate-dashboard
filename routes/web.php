@@ -93,6 +93,8 @@ Route::get('/order-print-pdf/{id}', [OrderController::class, 'orderPrintPdf'])->
 //email notification for user
 Route::get('/send-email/{id}', [OrderController::class, 'sendEmail'])->name('send.email');
 Route::post('/send-user-email/{id}', [OrderController::class, 'sendUserEmail'])->name('send.user.email');
+//product search
+Route::get('/product-search', [OrderController::class, 'productSearch'])->name('product.search');
 });
 
 

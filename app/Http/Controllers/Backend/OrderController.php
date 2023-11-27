@@ -48,5 +48,12 @@ class OrderController extends Controller
     Session::flash('success','Email Send successfully');
     return redirect()->back();
     }
+
+     public function productSearch(Request $request){
+        $searchText = $request->search;
+        $orders = Order::where('name','LIKE',"%$searchText%")->orWhere('phone','LIKE', "%$searchText%")->orWhere('product_title','LIKE',"%$searchText%")->get();
+        return view('admin.pages.order.view-order',compact('orders'));
+    }
+
     
 }
