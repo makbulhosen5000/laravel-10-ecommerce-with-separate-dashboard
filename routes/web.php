@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('frontend.home');
 // });
 
-Route::get('/',[HomeController::class,'index'])->middleware(['auth', 'verified']);
+Route::get('/',[HomeController::class,'index']);
 Route::get('/product-details/{id}',[HomeController::class,'productDetails'])->name('product.details');
 //add to cart route
 Route::post('/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');

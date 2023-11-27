@@ -10,8 +10,8 @@
                             <h2 class="page-title">
                                 order List
                             </h2>
-                            <a href="" class="btn btn-success"><i class="fa-solid fa-plus"></i>
-                                Create order</a>
+                            {{-- <a href="" class="btn btn-success"><i class="fa-solid fa-plus"></i>
+                                Create order</a> --}}
                         </div>
                     </div>
                 </div>
@@ -39,6 +39,7 @@
                                         <th><button class="table-sort" data-sort="sort-type">Delivery Status</button></th>
                                         <th><button class="table-sort" data-sort="sort-date">IsDelivered</button></th>
                                         <th><button class="table-sort" data-sort="sort-date">IsPrint</button></th>
+                                        <th><button class="table-sort" data-sort="sort-date">Mail Send</button></th>
                                     </tr>
                                 </thead>
                                 <tbody class="table-tbody">
@@ -88,6 +89,7 @@
                                                 
                                                 
                                             </td>
+                                              <td> <a href="{{ route('send.email',$order->id) }}" class="btn btn-primary">Send Email</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>

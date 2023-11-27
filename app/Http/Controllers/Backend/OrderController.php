@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Notifications\SendEmailNotification;
 use Illuminate\Http\Request;
+use Notification;
+use Session;
 use PDF;
 class OrderController extends Controller
 {
@@ -28,6 +31,22 @@ class OrderController extends Controller
     }
     //email notification function
     public function sendEmail($id){
-        
+        $order = Order::find($id);
+        return view('admin.pages.email.email_info',compact('order'));
     }
+    public function sendUserEmail(Request $request,$id){
+    $order = Order::find($id);
+    $details = [
+        'greeting'=> $request->greeting,
+        'firstline'=> $request->firstline,
+        'body'=> $request->body,
+        'button'=> $request->button,
+        'url'=> $request->url,
+        'lastline,'=> $request->lastline,
+    ];
+    Notification::send($order, new SendEmailNotification($details));
+    Session::flash('success','Email Send successfully');
+    return redirect()->back();
+    }
+    
 }
