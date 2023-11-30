@@ -1,11 +1,11 @@
  <!-- Libs JS -->
- <script src="{{ asset('backend/dist') }}/libs/apexcharts/{{ asset('backend/dist') }}/apexcharts.min.js?1684106062"
+ <script src="{{ asset('backend/dist') }}/libs/apexcharts/apexcharts.min.js?1684106062"
      defer></script>
- <script src="{{ asset('backend/dist') }}/libs/jsvectormap/{{ asset('backend/dist') }}/js/jsvectormap.min.js?1684106062"
+ <script src="{{ asset('backend/dist') }}/libs/jsvectormap/js/jsvectormap.min.js?1684106062"
      defer></script>
- <script src="{{ asset('backend/dist') }}/libs/jsvectormap/{{ asset('backend/dist') }}/maps/world.js?1684106062" defer>
+ <script src="{{ asset('backend/dist') }}/libs/jsvectormap/maps/world.js?1684106062" defer>
  </script>
- <script src="{{ asset('backend/dist') }}/libs/jsvectormap/{{ asset('backend/dist') }}/maps/world-merc.js?1684106062"
+ <script src="{{ asset('backend/dist') }}/libs/jsvectormap/maps/world-merc.js?1684106062"
      defer></script>
  <!-- Tabler Core -->
  <script src="{{ asset('backend/dist') }}/js/tabler.min.js?1684106062" defer></script>

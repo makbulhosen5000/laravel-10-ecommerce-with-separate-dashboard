@@ -83,7 +83,7 @@
                 <div class="swiper-slide">
                     <div class="product-card-02">
                         <div class="product-thumb">
-                            <a href="products.html"><img
+                            <a href="#"><img
                                     src="{{ asset('frontend') }}/public/assets/images/all-img/t-product-03.png"
                                     alt=""></a>
                         </div>

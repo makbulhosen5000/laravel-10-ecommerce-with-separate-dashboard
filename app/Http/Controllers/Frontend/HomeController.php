@@ -13,6 +13,8 @@ class HomeController extends Controller
      
     $data['products'] = Product::all();
     $data['carts'] = Cart::all();
+    // $response =$this->get('/');
+    // $response->assertStatus(200);
     return view('frontend.home',$data); 
     }
 

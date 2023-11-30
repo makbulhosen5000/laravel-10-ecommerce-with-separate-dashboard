@@ -9,7 +9,7 @@
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7.125 5.25L10.875 9L7.125 12.75" stroke="#636270" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-                <a href="products.html" class="text-[14px] font-normal leading-[110%] text-dark-gray">Shop</a>
+                <a href="#" class="text-[14px] font-normal leading-[110%] text-dark-gray">Shop</a>
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7.125 5.25L10.875 9L7.125 12.75" stroke="#636270" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
