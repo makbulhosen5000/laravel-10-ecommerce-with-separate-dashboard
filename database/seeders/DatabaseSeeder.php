@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 class DatabaseSeeder extends Seeder
@@ -18,9 +21,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'image' => 'test@example.com',
         // ]);
-         $this->call([
-        AdminSeeder::class,
-        ]);
+        Category::factory()->count(10)->create();
+        //  $this->call([
+        // AdminSeeder::class,
+        // ]);
 
     }
 }

@@ -9,12 +9,12 @@ use App\Models\Cart;
 
 class HomeController extends Controller
 {
+    
     public function index(){
      
     $data['products'] = Product::all();
     $data['carts'] = Cart::all();
-    // $response =$this->get('/');
-    // $response->assertStatus(200);
+
     return view('frontend.home',$data); 
     }
 

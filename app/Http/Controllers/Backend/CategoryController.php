@@ -32,19 +32,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'name' => 'required|unique:categories|max:255',
             'image' => 'required',
         ]);
         $category = new Category();
         $category->name = $request->name;
         $category->slug = Str::slug($category->name);
-
-        // $image = $request->file('file');
-        // $imageName = time().$image->getClientOriginalName().'.'.$image->extension();
-        // $image->move(public_path('public/images/category/'),$imageName);
-        // return response()->json(['success'=>$imageName]);
-
         if($request->hasFile('image')){
             $file=$request->file('image');
             $extension=$file->getClientOriginalExtension();

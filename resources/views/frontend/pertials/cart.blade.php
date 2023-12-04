@@ -117,12 +117,22 @@
                     <li>
                         <a href="{{ route('show.cart') }}">Wishlist</a>
                     </li>
+                    @auth
+                        <li>
+                            <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button class="btn-lg btn-warning" type="submit">Logout</button>
+                            </form>
+                        </li>
+                    @else
                     <li>
-                        <form action="{{ route('logout') }}" method="POST">
-                          @csrf
-                        <button class="btn-lg btn-warning" type="submit">Logout</button>
+                        <a href="{{ route('login') }}">
+                        <button class="btn-lg btn-warning" type="submit">Login</button>
                         </form>
+                        </a>
                     </li>
+                    @endauth
+                    
                 </div>
             </ul>
         </div>
